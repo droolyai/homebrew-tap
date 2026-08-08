@@ -1,11 +1,14 @@
 cask "maple-city" do
   arch arm: "-arm64", intel: ""
 
-  version "1.0.0"
-  sha256 arm:   "20abcf28bf92434201dd3a40b186a21166d8fe258825c22660a2c588dab482d5",
-         intel: "df2bb1a80143c2aa8f6eda7729960156b68ac3548e43d0cb10891568ca770b4f"
+  version "1.0.1"
+  sha256 arm:   "ce8367df23f5ed6ae6a4b4d1bccfab3d1326b43702808b71dffbe6141a6da3e1",
+         intel: "b8407f2feef0f0f83a005e538210cfb5a68106f4b0a4b2c2904ac4f55f1a5e0d"
 
-  url "https://github.com/droolyai/drooly-desktop/releases/download/v#{version}/Maple.City-#{version}#{arch}.dmg"
+  # v1.0.1 release tag ships assets still named with the app's internal 1.0.0
+  # version string (package.json wasn't rebumped) — url references the tag,
+  # not the interpolated filename, so this stays correct either way.
+  url "https://github.com/droolyai/drooly-desktop/releases/download/v#{version}/Maple.City-1.0.0#{arch}.dmg"
   name "Maple City"
   desc "Maple City ($DDD) — digital Toronto game, cross-device multiplayer with web + Solana Seeker"
   homepage "https://drooly.ai/games/ddd"
@@ -14,5 +17,7 @@ cask "maple-city" do
 
   caveats <<~EOS
     Unsigned build: right-click the app and choose Open on first launch.
+    If macOS says the app "is damaged," run:
+      xattr -cr "/Applications/Maple City.app"
   EOS
 end
