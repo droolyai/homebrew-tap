@@ -1,13 +1,13 @@
 cask "maple-city" do
   arch arm: "-arm64", intel: ""
 
-  version "1.0.1"
-  sha256 arm:   "ce8367df23f5ed6ae6a4b4d1bccfab3d1326b43702808b71dffbe6141a6da3e1",
-         intel: "b8407f2feef0f0f83a005e538210cfb5a68106f4b0a4b2c2904ac4f55f1a5e0d"
+  version "1.0.2"
+  sha256 arm:   "0caf5f926c8a351c276b9ab813251f0f18bdeb02401cc3ccfc6fe999b2a91c88",
+         intel: "8cba374204a108f15aa4208339ec2f7bcae40888d6056fe56483b5f44f926944"
 
-  # v1.0.1 release tag ships assets still named with the app's internal 1.0.0
-  # version string (package.json wasn't rebumped) — url references the tag,
-  # not the interpolated filename, so this stays correct either way.
+  # release tag ships assets named with the app's internal 1.0.0 version
+  # string (package.json wasn't rebumped) — url references the tag, not the
+  # interpolated filename, so this stays correct across release bumps.
   url "https://github.com/droolyai/drooly-desktop/releases/download/v#{version}/Maple.City-1.0.0#{arch}.dmg"
   name "Maple City"
   desc "Maple City ($DDD) — digital Toronto game, cross-device multiplayer with web + Solana Seeker"

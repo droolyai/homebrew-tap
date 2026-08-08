@@ -1,13 +1,13 @@
 cask "wetdrool" do
   arch arm: "-arm64", intel: ""
 
-  version "1.0.1"
-  sha256 arm:   "b5f529e9c09ce0d91867b9f3646915a049c78167efcf6ace23aa1c0c4160f338",
-         intel: "e248e7efb40e5a8bb18f7d0389d87c0442c6e223ed8052962ff1ad33aa70dc8b"
+  version "1.0.2"
+  sha256 arm:   "412707ade336359c6d2316bf6ed5ec6638059f702475261cdf75f75578cdd73b",
+         intel: "e5f491c34a7969adf4723a731bf6a1d3a2db1f6c584308e7a1a6f6f8159ba69f"
 
-  # v1.0.1 release tag ships assets still named with the app's internal 1.0.0
-  # version string (package.json wasn't rebumped) — url references the tag,
-  # not the interpolated filename, so this stays correct either way.
+  # release tag ships assets named with the app's internal 1.0.0 version
+  # string (package.json wasn't rebumped) — url references the tag, not the
+  # interpolated filename, so this stays correct across release bumps.
   url "https://github.com/droolyai/drooly-desktop/releases/download/v#{version}/WetDrool-1.0.0#{arch}.dmg"
   name "WetDrool"
   desc "WetDrool 18+ after-dark arena — age gate enforced in-game"
